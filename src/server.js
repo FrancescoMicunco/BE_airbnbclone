@@ -11,6 +11,9 @@ import {
 
 } from '../middlewares/herrorhandler.js'
 import sequelize from "../service/connect.js";
+import user from '../models/users/index.js'
+import userRouter from '../service/endpoints/user.js'
+
 //============= middlewers =============
 //======================================
 
@@ -29,7 +32,7 @@ server.use(cors(corsOption))
 server.use(express.json())
     // =========== end points ==============
     //=====================================
-
+server.use('/user', userRouter)
 
 
 
