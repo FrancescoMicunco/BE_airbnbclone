@@ -8,9 +8,28 @@ router
     .route('/')
     .get(async(req, res, next) => {
         try {
-            const user = await User.findAll()
-            const howMany = user.length - 1
-            console.log(howMany)
+            const user = await User.findAll({
+                where: {
+                    ...(req.query.search && {
+                        [Op.or]: [{
+                                username: {
+                                    [Op.iLike]: `%${req.query.search}%`
+                                },
+                                password: {
+                                    [Op.iLike]: `%${req.query.search}%`
+                                },
+                                email: {
+                                    [Op.iLike]: `%${req.query.search}%`
+                                },
+                                isHost: {
+                                    [Op.iLike]: `%${req.query.search}%`
+                                },
+
+                            }] //end Op.or
+                    })
+                }
+            })
+
             res.send(user)
         } catch (error) {
             next(error)
