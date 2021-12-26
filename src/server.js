@@ -1,7 +1,6 @@
 import express from "express";
 import cors from 'cors';
 import listEndpoints from "express-list-endpoints";
-const server = express();
 import { testDB } from '../service/connect.js'
 import {
     badRequest,
@@ -11,9 +10,13 @@ import {
 
 } from '../middlewares/herrorhandler.js'
 import sequelize from "../service/connect.js";
-import user from '../models/users/index.js'
 import userRouter from '../service/endpoints/user.js'
 
+
+//====== end import area ========
+// ==============================
+
+const server = express();
 //============= middlewers =============
 //======================================
 
@@ -50,7 +53,7 @@ console.table(listEndpoints(server))
 server.listen(process.env.port || 3001, async() => {
     console.log("server is running");
     await testDB()
-    await sequelize.sync({ logging: false, force: true })
+    await sequelize.sync({ logging: false, alter: true })
 })
 
 server.on("error", (error) => console.log("Server is not running", error))
