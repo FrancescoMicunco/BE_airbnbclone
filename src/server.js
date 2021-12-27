@@ -57,7 +57,7 @@ console.table(listEndpoints(server))
 server.listen(process.env.port || 3001, async() => {
     console.log("server is running");
     await testDB()
-    await sequelize.sync({ logging: false, alter: true })
+    await sequelize.sync({ logging: false, force: true })
 })
 
 server.on("error", (error) => console.log("Server is not running", error))
