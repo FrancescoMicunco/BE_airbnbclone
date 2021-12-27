@@ -11,7 +11,8 @@ import {
 } from '../middlewares/herrorhandler.js';
 import sequelize from "../service/connect.js";
 import userRouter from '../service/endpoints/user.js';
-import cityRouter from '../service/endpoints/cities.js'
+import cityRouter from '../service/endpoints/cities.js';
+import houseRouter from '../service/endpoints/houses.js'
 
 
 //====== end import area ========
@@ -38,6 +39,7 @@ server.use(express.json())
     //=====================================
 server.use('/user', userRouter)
 server.use('/city', cityRouter)
+server.use('/house', houseRouter)
 
 
 
@@ -55,7 +57,7 @@ console.table(listEndpoints(server))
 server.listen(process.env.port || 3001, async() => {
     console.log("server is running");
     await testDB()
-    await sequelize.sync({ logging: false, force: true })
+    await sequelize.sync({ logging: false, alter: true })
 })
 
 server.on("error", (error) => console.log("Server is not running", error))
