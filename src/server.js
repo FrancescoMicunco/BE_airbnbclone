@@ -8,9 +8,10 @@ import {
     notFound,
     genericError
 
-} from '../middlewares/herrorhandler.js'
+} from '../middlewares/herrorhandler.js';
 import sequelize from "../service/connect.js";
-import userRouter from '../service/endpoints/user.js'
+import userRouter from '../service/endpoints/user.js';
+import cityRouter from '../service/endpoints/cities.js'
 
 
 //====== end import area ========
@@ -36,6 +37,7 @@ server.use(express.json())
     // =========== end points ==============
     //=====================================
 server.use('/user', userRouter)
+server.use('/city', cityRouter)
 
 
 
@@ -53,7 +55,7 @@ console.table(listEndpoints(server))
 server.listen(process.env.port || 3001, async() => {
     console.log("server is running");
     await testDB()
-    await sequelize.sync({ logging: false, alter: true })
+    await sequelize.sync({ logging: false, force: true })
 })
 
 server.on("error", (error) => console.log("Server is not running", error))
