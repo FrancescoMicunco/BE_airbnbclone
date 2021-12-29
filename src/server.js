@@ -12,7 +12,9 @@ import {
 import sequelize from "../service/connect.js";
 import userRouter from '../service/endpoints/user.js';
 import cityRouter from '../service/endpoints/cities.js';
-import houseRouter from '../service/endpoints/houses.js'
+import houseRouter from '../service/endpoints/houses.js';
+import Cities from '../models/Cities/index.js';
+import Houses from '../models/houses/index.js'
 
 
 //====== end import area ========
@@ -35,8 +37,16 @@ const corsOption = {
 };
 server.use(cors(corsOption))
 server.use(express.json())
-    // =========== end points ==============
-    //=====================================
+
+// ========== connections ==========
+// =================================
+
+Cities.hasMany(Houses, { onDelete: 'CASCADE', onUpdate: 'CASCADE' });
+Houses.belongsTo(Cities, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
+
+
+// =========== end points ==============
+//=====================================
 server.use('/user', userRouter)
 server.use('/city', cityRouter)
 server.use('/house', houseRouter)

@@ -17,7 +17,7 @@ router
     .post(async(req, res, next) => {
         try {
             const house = await Houses.create(req.body);
-            res.send("201 - New house corct added")
+            res.send("201 - New house added")
         } catch (error) {
             next(error)
         }

@@ -1,6 +1,7 @@
 import express from "express";
 import { Op } from 'sequelize';
 import Cities from "../../models/Cities/index.js";
+import Houses from "../../models/houses/index.js";
 
 
 const router = express.Router();
@@ -9,7 +10,12 @@ router
     .route('/')
     .get(async(req, res, next) => {
         try {
-            const city = await Cities.findAll()
+            const city = await Cities.findAll({
+                include: Houses,
+                where: {
+
+                }
+            })
             res.send(city)
         } catch (error) {
             next(error)
@@ -23,7 +29,34 @@ router
             next(error)
         }
     })
+router
+    .route('/:id')
+    .get(async(req, res, next) => {
+        try {
+            const city = await Cities.findAll({
+                include: Houses,
+                where: {
+                    id: req.params.id
+                }
+            })
 
+            res.send(city)
+        } catch (error) {
+            next(error)
+        }
+    })
+    .delete(async(req, res, next) => {
+        try {
+            const city = await Cities.destroy({
+                where: {
+                    id: req.params.id
+                }
+            })
+            res.send("201 - city has been deleted deleted!")
+        } catch (error) {
+            next(error)
+        }
+    })
 
 
 
