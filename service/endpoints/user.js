@@ -29,7 +29,7 @@ router
                     })
                 }
             })
-
+            console.log("those are query", req.query)
             res.send(user)
         } catch (error) {
             next(error)
