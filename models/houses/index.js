@@ -58,7 +58,7 @@ const Houses = sequelize.define('Houses', {
         allowNull: true
     },
     image1url: {
-        type: DataTypes.ARRAY(DataTypes.STRING),
+        type: DataTypes.STRING,
         allowNull: true
     },
 })
