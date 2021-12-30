@@ -10,11 +10,11 @@ const Houses = sequelize.define('Houses', {
         defaultValue: UUIDV4
     },
     rooms: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false
     },
     max_host_num: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false
     },
     isSmoking: {
@@ -31,7 +31,7 @@ const Houses = sequelize.define('Houses', {
     },
     isFree: {
         type: DataTypes.BOOLEAN,
-        allowNull: false
+        allowNull: true
     },
     title: {
         type: DataTypes.STRING,
@@ -42,7 +42,7 @@ const Houses = sequelize.define('Houses', {
         allowNull: false
     },
     rate: {
-        type: DataTypes.INTEGER,
+        type: DataTypes.STRING,
         allowNull: false
     },
     isWiFi: {

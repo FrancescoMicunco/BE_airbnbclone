@@ -23,13 +23,13 @@ const User = sequelize.define('User', {
             type: DataTypes.STRING,
             allowNull: false,
             unique: true,
-            validate: { isEmail: true }
+            //validate: { isEmail: true }
         },
         phone: {
-            type: DataTypes.INTEGER,
+            type: DataTypes.STRING,
             allowNull: false,
             unique: true,
-            //validate: { isEmail: true }
+
         },
         username: {
             type: DataTypes.STRING,
@@ -41,8 +41,8 @@ const User = sequelize.define('User', {
             allowNull: false
         },
         isHost: {
-            type: DataTypes.BOOLEAN,
-            allowNull: false
+            type: DataTypes.STRING,
+            allowNull: true
         }
 
     }, //{

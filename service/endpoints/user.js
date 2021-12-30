@@ -38,7 +38,7 @@ router
     .post(async(req, res, next) => {
         try {
             const user = await User.create(req.body)
-            res.send(user)
+            res.send("200 - user correctly added")
         } catch (error) {
             next(error)
         }
