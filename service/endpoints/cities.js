@@ -12,9 +12,7 @@ router
         try {
             const city = await Cities.findAll({
                 include: Houses,
-                where: {
-
-                }
+                where: {}
             })
             res.send(city)
         } catch (error) {

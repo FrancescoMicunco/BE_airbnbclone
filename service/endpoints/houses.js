@@ -8,7 +8,50 @@ router
     .route('/')
     .get(async(req, res, next) => {
         try {
-            const house = await Houses.findAll()
+            const house = await Houses.findAll({
+                where: {
+                    ...(req.query.seacrh && {
+                        [Op.or]: [{
+                            rooms: {
+                                [Op.iLike]: `%${req.query.search}%`
+                            },
+                            max_host_num: {
+                                [Op.iLike]: `%${req.query.search}%`
+                            },
+                            isSmoking: {
+                                [Op.iLike]: `%${req.query.search}%`
+                            },
+                            isCooking: {
+                                [Op.iLike]: `%${req.query.search}%`
+                            },
+                            isPrivateBath: {
+                                [Op.iLike]: `%${req.query.search}%`
+                            },
+                            isFree: {
+                                [Op.iLike]: `%${req.query.search}%`
+                            },
+                            title: {
+                                [Op.iLike]: `%${req.query.search}%`
+                            },
+                            description: {
+                                [Op.iLike]: `%${req.query.search}%`
+                            },
+                            rate: {
+                                [Op.iLike]: `%${req.query.search}%`
+                            },
+                            isWiFi: {
+                                [Op.iLike]: `%${req.query.search}%`
+                            },
+                            isParking: {
+                                [Op.iLike]: `%${req.query.search}%`
+                            },
+                            isBreakfast: {
+                                [Op.iLike]: `%${req.query.search}%`
+                            }
+                        }]
+                    })
+                }
+            })
             res.send(house)
         } catch (error) {
             next(error)
