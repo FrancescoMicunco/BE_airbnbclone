@@ -12,10 +12,12 @@ const Cities = sequelize.define('Cities', {
     country: {
         type: DataTypes.STRING,
         allowNull: false
+
     },
     name: {
         type: DataTypes.STRING,
-        allowNull: false
+        allowNull: false,
+        unique: true
     }
 })
 

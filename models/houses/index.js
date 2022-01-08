@@ -15,7 +15,13 @@ const Houses = sequelize.define('Houses', {
     },
     maxhostnum: {
         type: DataTypes.INTEGER,
-        allowNull: true
+        allowNull: false,
+        validate: {
+            min: 1,
+            notNull: {
+                msg: 'Please enter at least 1 room'
+            }
+        }
     },
     isSmoking: {
         type: DataTypes.BOOLEAN,

@@ -5,49 +5,47 @@ const { DataTypes } = s
 
 
 const User = sequelize.define('User', {
-        id: {
-            primaryKey: true,
-            type: DataTypes.UUID,
-            defaultValue: DataTypes.UUIDV4
-        },
+    id: {
+        primaryKey: true,
+        type: DataTypes.UUID,
+        defaultValue: DataTypes.UUIDV4
+    },
 
-        firstName: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        lastName: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        email: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-            //validate: { isEmail: true }
-        },
-        phone: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true,
-
-        },
-        username: {
-            type: DataTypes.STRING,
-            allowNull: false,
-            unique: true
-        },
-        password: {
-            type: DataTypes.STRING,
-            allowNull: false
-        },
-        isHost: {
-            type: DataTypes.STRING,
-            allowNull: true
+    firstName: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    lastName: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    email: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+        validate: {
+            isEmail: true,
         }
-
-    }, //{
-    // Other model options go here
-    //}
-);
+        //     notNull: { msg: "Invalid email!" }
+    },
+    phone: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true,
+    },
+    username: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        unique: true
+    },
+    password: {
+        type: DataTypes.STRING,
+        allowNull: false
+    },
+    isHost: {
+        type: DataTypes.STRING,
+        allowNull: true
+    }
+}, );
 
 export default User
