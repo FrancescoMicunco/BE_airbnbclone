@@ -1,6 +1,7 @@
 import express from 'express';
 import { Op } from 'sequelize';
 import User from '../../models/users/index.js'
+import Houses from "../../models/houses/index.js";
 
 const router = express.Router();
 
@@ -9,6 +10,7 @@ router
     .get(async(req, res, next) => {
         try {
             const user = await User.findAll({
+                include: Houses,
                 where: {
                     ...(req.query.search && {
                         [Op.or]: [{
@@ -38,7 +40,7 @@ router
     .post(async(req, res, next) => {
         try {
             const user = await User.create(req.body)
-            res.send("200 - user correctly added")
+            res.send("201 - user correctly added")
         } catch (error) {
             next(error)
         }

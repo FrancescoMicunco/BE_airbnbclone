@@ -10,12 +10,12 @@ router
         try {
             const house = await Houses.findAll({
                 where: {
-                    ...(req.query.seacrh && {
+                    ...(req.query.search && {
                         [Op.or]: [{
                             rooms: {
                                 [Op.iLike]: `%${req.query.search}%`
                             },
-                            max_host_num: {
+                            maxhostnum: {
                                 [Op.iLike]: `%${req.query.search}%`
                             },
                             isSmoking: {
@@ -49,6 +49,11 @@ router
                                 [Op.iLike]: `%${req.query.search}%`
                             }
                         }]
+                    }),
+                    ...(req.query.price && {
+                        price: {
+                            [Op.between]: req.query.price.split(",")
+                        }
                     })
                 }
             })

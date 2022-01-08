@@ -10,12 +10,12 @@ const Houses = sequelize.define('Houses', {
         defaultValue: UUIDV4
     },
     rooms: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false
     },
-    max_host_num: {
-        type: DataTypes.STRING,
-        allowNull: false
+    maxhostnum: {
+        type: DataTypes.INTEGER,
+        allowNull: true
     },
     isSmoking: {
         type: DataTypes.BOOLEAN,
@@ -38,11 +38,11 @@ const Houses = sequelize.define('Houses', {
         allowNull: false
     },
     description: {
-        type: DataTypes.TEXT,
+        type: DataTypes.STRING,
         allowNull: false
     },
     rate: {
-        type: DataTypes.STRING,
+        type: DataTypes.INTEGER,
         allowNull: false
     },
     isWiFi: {
@@ -61,6 +61,10 @@ const Houses = sequelize.define('Houses', {
         type: DataTypes.STRING,
         allowNull: true
     },
+    price: {
+        type: DataTypes.STRING,
+        allowNull: false
+    }
 })
 
 export default Houses

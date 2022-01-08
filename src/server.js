@@ -15,7 +15,7 @@ import cityRouter from '../service/endpoints/cities.js';
 import houseRouter from '../service/endpoints/houses.js';
 import Cities from '../models/Cities/index.js';
 import Houses from '../models/houses/index.js'
-
+import User from '../models/users/index.js'
 
 //====== end import area ========
 // ==============================
@@ -44,6 +44,9 @@ server.use(express.json())
 Cities.hasMany(Houses, { onDelete: 'CASCADE', onUpdate: 'CASCADE' });
 Houses.belongsTo(Cities, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
 
+User.hasMany(Houses, { onDelete: 'CASCADE', onUpdate: 'CASCADE' });
+Houses.belongsTo(User, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
+
 
 // =========== end points ==============
 //=====================================
@@ -67,7 +70,7 @@ console.table(listEndpoints(server))
 server.listen(process.env.port || 3001, async() => {
     console.log("server is running");
     await testDB()
-    await sequelize.sync({ logging: false, alter: true })
+    await sequelize.sync({ logging: false, force: true })
 })
 
 server.on("error", (error) => console.log("Server is not running", error))
