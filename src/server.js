@@ -68,7 +68,7 @@ server.use(genericError)
 //=========================================
 
 console.table(listEndpoints(server))
-server.listen(process.env.port || 3001, async() => {
+server.listen(process.env.PORT || 3001, async() => {
     console.log("server is running");
     await testDB()
     await sequelize.sync({ logging: false, alter: true })
