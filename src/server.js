@@ -74,4 +74,5 @@ server.listen(process.env.PORT || 3001, async() => {
     await sequelize.sync({ logging: false, alter: true })
 })
 
+
 server.on("error", (error) => console.log("Server is not running", error))
