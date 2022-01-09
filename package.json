@@ -4,6 +4,9 @@
     "description": "",
     "main": "index.js",
     "type": "module",
+    "engines": {
+        "node": "v16.13.1"
+    },
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "dev": "nodemon -e js -r dotenv/config ./src/server.js",
