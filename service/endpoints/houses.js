@@ -12,43 +12,66 @@ router
                 where: {
                     ...(req.query.search && {
                         [Op.or]: [{
-                            rooms: {
-                                [Op.iLike]: `%${req.query.search}%`
+                                rooms: {
+                                    [Op.iLike]: `%${req.query.search}%`
+                                }
                             },
-                            maxhostnum: {
-                                [Op.iLike]: `%${req.query.search}%`
+                            {
+                                maxhostnum: {
+                                    [Op.iLike]: `%${req.query.search}%`
+                                }
                             },
-                            isSmoking: {
-                                [Op.iLike]: `%${req.query.search}%`
+                            {
+                                isSmoking: {
+                                    [Op.iLike]: `%${req.query.search}%`
+                                }
                             },
-                            isCooking: {
-                                [Op.iLike]: `%${req.query.search}%`
+                            {
+                                isCooking: {
+                                    [Op.iLike]: `%${req.query.search}%`
+                                }
                             },
-                            isPrivateBath: {
-                                [Op.iLike]: `%${req.query.search}%`
+                            {
+                                isPrivateBath: {
+                                    [Op.iLike]: `%${req.query.search}%`
+                                }
                             },
-                            isFree: {
-                                [Op.iLike]: `%${req.query.search}%`
+                            {
+                                isFree: {
+                                    [Op.iLike]: `%${req.query.search}%`
+                                }
                             },
-                            title: {
-                                [Op.iLike]: `%${req.query.search}%`
+                            {
+                                title: {
+                                    [Op.iLike]: `%${req.query.search}%`
+                                }
                             },
-                            description: {
-                                [Op.iLike]: `%${req.query.search}%`
+                            {
+                                description: {
+                                    [Op.iLike]: `%${req.query.search}%`
+                                }
                             },
-                            rate: {
-                                [Op.iLike]: `%${req.query.search}%`
+                            {
+                                rate: {
+                                    [Op.iLike]: `%${req.query.search}%`
+                                }
                             },
-                            isWiFi: {
-                                [Op.iLike]: `%${req.query.search}%`
+                            {
+                                isWiFi: {
+                                    [Op.iLike]: `%${req.query.search}%`
+                                }
                             },
-                            isParking: {
-                                [Op.iLike]: `%${req.query.search}%`
+                            {
+                                isParking: {
+                                    [Op.iLike]: `%${req.query.search}%`
+                                }
                             },
-                            isBreakfast: {
-                                [Op.iLike]: `%${req.query.search}%`
+                            {
+                                isBreakfast: {
+                                    [Op.iLike]: `%${req.query.search}%`
+                                }
                             }
-                        }]
+                        ]
                     }),
                     ...(req.query.price && {
                         price: {
