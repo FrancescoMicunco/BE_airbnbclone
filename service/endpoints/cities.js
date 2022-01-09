@@ -12,7 +12,21 @@ router
         try {
             const city = await Cities.findAll({
                 include: Houses,
-                where: {}
+                where: {
+                    ...(req.query.search && {
+                        [Op.or]: [{
+                                country: {
+                                    [Op.iLike]: `%${req.query.search}%`
+                                }
+                            },
+                            {
+                                name: {
+                                    [Op.iLike]: `%${req.query.search}%`
+                                }
+                            }
+                        ]
+                    })
+                }
             })
             res.send(city)
         } catch (error) {
