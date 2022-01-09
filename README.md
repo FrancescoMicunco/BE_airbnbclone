@@ -11,7 +11,7 @@ User -
       GET:ID ->    https://bnbconem6.herokuapp.com//user/id <br>
       PUT:ID ->    https://bnbconem6.herokuapp.com//user/id <br>
       DELETE:id -> https://bnbconem6.herokuapp.com//user/id <br>
-      ================================================================
+      ================================================================ <br>
 Houses -  
       GET ->       https://bnbconem6.herokuapp.com//house <br>
       POST->       https://bnbconem6.herokuapp.com//house <br>
@@ -19,7 +19,7 @@ Houses -
       PUT:ID ->    https://bnbconem6.herokuapp.com//house/id <br>
       DELETE:id -> https://bnbconem6.herokuapp.com//house/id <br>
       Search allowed by number of rooms, maxhostnum, isSmoking, isCooking, isPrivateBath, isFree, title, description, rate, isWiFi, isParking, isBreakfast, price range
-      =================================================================
+      ================================================================= <br>
 Cities -
       GET    ->  https://bnbconem6.herokuapp.com//city <br>
       POST   ->  https://bnbconem6.herokuapp.com//city <br>
