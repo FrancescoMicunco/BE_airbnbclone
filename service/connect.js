@@ -9,8 +9,6 @@ const sequelize = new Sequelize(
             },
         },
     }
-
-
 )
 
 export const testDB = async() => {
