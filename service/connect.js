@@ -1,7 +1,7 @@
 import { Sequelize } from 'sequelize'
 
 const sequelize = new Sequelize(
-    process.env.DB_URL, {
+    process.env.DATABASE_URL, {
         dialectOptions: {
             ssl: {
                 require: true,
