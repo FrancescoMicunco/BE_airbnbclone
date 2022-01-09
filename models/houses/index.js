@@ -18,9 +18,9 @@ const Houses = sequelize.define('Houses', {
         allowNull: false,
         validate: {
             min: 1,
-            notNull: {
-                msg: 'Please enter at least 1 room'
-            }
+            // notNull: {
+            //     msg: 'Please enter at least 1 room'
+            // }
         }
     },
     isSmoking: {

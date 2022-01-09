@@ -48,6 +48,7 @@ User.hasMany(Houses, { onDelete: 'CASCADE', onUpdate: 'CASCADE' });
 Houses.belongsTo(User, { onDelete: 'CASCADE', onUpdate: 'CASCADE' })
 
 
+
 // =========== end points ==============
 //=====================================
 server.use('/user', userRouter)
